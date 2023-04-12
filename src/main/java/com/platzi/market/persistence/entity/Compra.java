@@ -24,6 +24,14 @@ public class Compra {
 
     private String estado;
 
+    @ManyToOne
+    @JoinColumn(name="id_cliente", insertable = false, updatable = false)
+    private Cliente cliente;
+
+    @ManyToOne
+    @JoinColumn(name="compra", insertable = false, updatable = false)
+    private ComprasProducto productos;
+
     public Integer getIdCompra() {
         return idCompra;
     }
