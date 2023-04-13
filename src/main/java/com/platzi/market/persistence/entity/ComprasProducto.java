@@ -14,7 +14,9 @@ public class ComprasProducto {
 
     private Boolean estado;
 
+    //Para guardar en cascada @MapsId("idCompra")
     @ManyToOne
+    @MapsId("idCompra")
     @JoinColumn(name="id_compra", insertable = false, updatable = false)
     private Compra compra;
 

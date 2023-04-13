@@ -29,7 +29,8 @@ public class Compra {
     @JoinColumn(name="id_cliente", insertable = false, updatable = false)
     private Cliente cliente;
 
-    @OneToMany(mappedBy = "compra")
+    //cascade = {CascadeType.ALL} para guardar en cascada
+    @OneToMany(mappedBy = "compra", cascade = {CascadeType.ALL})
     private List<ComprasProducto> productos;
 
     public Cliente getCliente() {
