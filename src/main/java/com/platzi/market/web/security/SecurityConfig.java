@@ -34,6 +34,16 @@ public class SecurityConfig {
                 .requestMatchers("configuration/**")
                 .requestMatchers("/swagger*/**")
                 .requestMatchers("/webjars/**")
+                .requestMatchers("/auth/**")
                 .requestMatchers("/swagger-ui/**");
+    }
+
+    @Bean
+    public AuthenticationManager authenticationManager(HttpSecurity http) throws Exception {
+
+        return http.getSharedObject(AuthenticationManagerBuilder.class)
+                .userDetailsService(userDetailsService)
+                .and()
+                .build();
     }
 }
